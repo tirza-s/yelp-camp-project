@@ -1,0 +1,37 @@
+<!-- USING BOILERPLATE EJS TO HAVE THE SAME LAYOUT ->  https://github.com/JacksonTian/ejs-mate -->
+<% layout("layout/boilerplate") %>
+
+    <h3>Campgrounds Show !</h3>
+
+    <div class="row">
+        <div class="col-6 offset-4">
+            <div class="card mb-5" style="width: 18rem;">
+                <img class="card-img-top" src="<%= campground.image%>" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%=campground.title%>
+                    </h5>
+                    <p class="card-text">
+                        <%=campground.description%>
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-muted">
+                        <%=campground.location%>
+                    </li>
+                    <li class="list-group-item text-muted">€<%=campground.price%>/night</li>
+                </ul>
+                <div class="card-body">
+                    <a class="card-link btn btn-info" href="/campgrounds/<%=campground._id%>/edit">Edit</a>
+                    <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    2 days ago <br>
+                    <a href="/campgrounds/">Back to all campground</a>
+                  </div>
+            </div>
+        </div>
+
+     
